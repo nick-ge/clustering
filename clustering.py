@@ -14,20 +14,20 @@ def create_graph(positions):
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="Clustering mittels k-nearest oder Llyod Algorithmus auf beliebiger Instanz"
+        description="Clustering a set of points using Lloyd algorithm"
     )
     parser.add_argument(
         "-f",
         "--file",
         type=str,
         default="instance/easy.instance",
-        help="Datei aus der Instanz ausgelesen werden soll (default: instance/random.instance.tsp)",
+        help="File containing set of points (default: instance/random.instance.tsp)",
     )
     parser.add_argument(
         "--llyod",
         "-l",
         action="store_true",
-        help="Nutze Llyod Algorithmus. Ohne diese Option wird k-nearest verwendet.",
+        help="Use Lloyd algorithm",
     )
     return parser.parse_args()
 
@@ -38,7 +38,8 @@ def lloyd(positions, k):
         node = positions[i]
         nearest = math.inf
         for centroid in centroids:
-            if dist(node, centroid) < dist(nearest
+            if dist(node, centroid) < dist(nearest):
+                # TODO: implement
 
 def main(args):
 
